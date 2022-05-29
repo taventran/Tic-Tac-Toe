@@ -4,7 +4,7 @@ void runScreen() {
 
 	// Set player turn to 1 first
 	int player = 1;
-
+	Bot bot;
 	// Make array of gameboard
 	char gameBoard[3][3];
 	for (int i = 0; i < 3; i++) {
@@ -37,23 +37,50 @@ void runScreen() {
 	SDL_Event event;
 	bool running = true;
 
+	std::cout << "Option 1: Play against cpu" << std::endl << "Option 2: Play against a person" << std::endl;
+	int choice;
+
+	std::cin >> choice;
+	
 	// Loop until application is closed
-	while (running) {
-		
-		while (SDL_PollEvent(&event)) {
-			drawBoard(renderer);
-			if (event.type == SDL_MOUSEBUTTONDOWN) {
-				gameLoop(renderer, player, gameBoard);
+	if (choice == 2) {
+		// 2 players
+		while (running) {
+
+			while (SDL_PollEvent(&event)) {
+				drawBoard(renderer);
+				if (event.type == SDL_MOUSEBUTTONDOWN) {
+					twoPlayerGameLoop(renderer, player, gameBoard);
+				}
+
+				SDL_RenderPresent(renderer);
+
+				if (event.type == SDL_QUIT) {
+					running = false;
+					break;
+				}
 			}
 
-			SDL_RenderPresent(renderer);
-
-			if (event.type == SDL_QUIT) {
-				running = false;
-				break;
-			}
 		}
+	}
+	else {
+		while (running) {
+			// Bot
+			while (SDL_PollEvent(&event)) {
+				drawBoard(renderer);
+				if (event.type == SDL_MOUSEBUTTONDOWN) {
+					botGameLoop(renderer, player, gameBoard, bot);
+				}
 
+				SDL_RenderPresent(renderer);
+
+				if (event.type == SDL_QUIT) {
+					running = false;
+					break;
+				}
+			}
+
+		}
 	}
 
 	SDL_DestroyWindow(window);

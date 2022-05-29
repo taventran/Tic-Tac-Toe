@@ -1,7 +1,7 @@
 #include "Game.h"
 #include <Windows.h>
 
-void gameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3]) {
+void twoPlayerGameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3]) {
 
 	int x, y;
 	Uint32 buttons;
@@ -40,6 +40,17 @@ void gameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3]) {
 		std::cout << currentPos.x << " " << currentPos.y << std::endl;
 	}
 	
+}
+
+void botGameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3], Bot& bot) {
+	
+	if (bot.getTurnNum() == 1) {
+
+	}
+	else {
+	
+	}
+
 }
 
 void checkTurn(int& player) {
