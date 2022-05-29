@@ -9,12 +9,14 @@ Bot::Bot() {
 
 
 coord Bot::botMove(char(&board)[3][3]) {
-	bool validMove;
+	bool validMove = false;
 	coord spot;
 	do {
 		spot.row = rand() % 3;
 		spot.col = rand() % 3;
 		validMove = changeArray(board, this->turnNum, spot);
 	} while (!validMove);
+
 	return spot;
 }
+

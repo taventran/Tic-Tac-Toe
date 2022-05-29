@@ -19,4 +19,6 @@ void drawX(SDL_Renderer* rend, position pos);
 
 void drawCircle(SDL_Renderer* rend, position pos);
 
-void winScreen(SDL_Renderer* rend);
+void botCircle(int x, int y, SDL_Renderer* rend);
+
+void botX(int x, int y, SDL_Renderer* rend);

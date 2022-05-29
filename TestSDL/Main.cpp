@@ -5,7 +5,6 @@
 	If it is a computer it will use a minimax algorithim to find best solution to win against player
 */
 
-
 int main(int argc, char *argv[]) {
 
 
