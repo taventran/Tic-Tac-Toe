@@ -71,9 +71,7 @@ void runScreen() {
 				if (event.type == SDL_MOUSEBUTTONDOWN) {
 					botGameLoop(renderer, player, gameBoard, bot);
 				}
-
 				SDL_RenderPresent(renderer);
-
 				if (event.type == SDL_QUIT) {
 					running = false;
 					break;

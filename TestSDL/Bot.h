@@ -9,3 +9,4 @@ class Bot {
 	private:
 		int turnNum;
 };
+

@@ -13,6 +13,7 @@ void drawX(SDL_Renderer* rend, position pos) {
 	SDL_SetRenderDrawColor(rend, 255, 0, 0, SDL_ALPHA_OPAQUE);
 	SDL_RenderDrawLine(rend, pos.x-65, pos.y - 65, pos.x+65, pos.y+65);
 	SDL_RenderDrawLine(rend, pos.x + 65, pos.y - 65, pos.x - 65, pos.y + 65);
+	SDL_RenderPresent(rend);
 }
 
 void drawCircle(SDL_Renderer* rend, position pos) {
@@ -51,6 +52,7 @@ void drawCircle(SDL_Renderer* rend, position pos) {
 			error += (dx - diameter);
 		}
 	}
+	SDL_RenderPresent(rend);
 }
 
 void addX(position pos, SDL_Renderer* rend) {
@@ -156,8 +158,108 @@ void addCircle(position pos, SDL_Renderer* rend) {
 	}
 	return;
 }
+void botCircle(int x, int y, SDL_Renderer* rend) {
+	position pos;
+	// First row
+	if (x == 0  && y == 0) {
+		pos.x = 65;
+		pos.y = 65;
+		drawCircle(rend, pos);
+	}
+	else if (x == 1 && y == 0) {
+		pos.x = 200;
+		pos.y = 65;
+		drawCircle(rend, pos);
+	}
+	else if (x == 2 && y == 0) {
+		pos.x = 335;
+		pos.y = 65;
+		drawCircle(rend, pos);
+	}
+	// Second row
+	else if (x == 0 && y == 1) {
+		pos.x = 65;
+		pos.y = 200;
+		drawCircle(rend, pos);
+	}
+	else if (x == 1 && y == 1) {
+		pos.x = 200;
+		pos.y = 200;
+		drawCircle(rend, pos);
+	}
+	else if (x == 2 && y == 1) {
+		pos.x = 335;
+		pos.y = 200;
+		drawCircle(rend, pos);
+	}
+	// Third row
+	else if (x == 0 && y == 2) {
+		pos.x = 65;
+		pos.y = 335;
+		drawCircle(rend, pos);
+	}
+	else if (x == 1 && y == 2) {
+		pos.x = 200;
+		pos.y = 335;
+		drawCircle(rend, pos);
+	}
+	else if (x == 2 && y == 2) {
+		pos.x = 335;
+		pos.y = 335;
+		drawCircle(rend, pos);
+	}
+	return;
+}
 
-void winScreen(SDL_Renderer* rend) {
-	SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
-	SDL_RenderClear(rend);
+void botX(int x, int y, SDL_Renderer* rend) {
+	position pos;
+	// First row
+	if (x == 0 && y == 0) {
+		pos.x = 65;
+		pos.y = 65;
+		drawCircle(rend, pos);
+	}
+	else if (x == 1 && y == 0) {
+		pos.x = 200;
+		pos.y = 65;
+		drawX(rend, pos);
+	}
+	else if (x == 2 && y == 0) {
+		pos.x = 335;
+		pos.y = 65;
+		drawX(rend, pos);
+	}
+	// Second row
+	else if (x == 0 && y == 1) {
+		pos.x = 65;
+		pos.y = 200;
+		drawX(rend, pos);
+	}
+	else if (x == 1 && y == 1) {
+		pos.x = 200;
+		pos.y = 200;
+		drawX(rend, pos);
+	}
+	else if (x == 2 && y == 1) {
+		pos.x = 335;
+		pos.y = 200;
+		drawX(rend, pos);
+	}
+	// Third row
+	else if (x == 0 && y == 2) {
+		pos.x = 65;
+		pos.y = 335;
+		drawX(rend, pos);
+	}
+	else if (x == 1 && y == 2) {
+		pos.x = 200;
+		pos.y = 335;
+		drawX(rend, pos);
+	}
+	else if (x == 2 && y == 2) {
+		pos.x = 335;
+		pos.y = 335;
+		drawX(rend, pos);
+	}
+	return;
 }

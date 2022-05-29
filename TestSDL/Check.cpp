@@ -45,7 +45,7 @@ struct coord checkPos(position pos) {
 	return spot;
 }
 
-bool changeArray(char(&board)[3][3], int player, coord spot) {
+bool changeArray(char(&board)[3][3], int player, coord &spot) {
 	if (board[spot.row][spot.col] == 'A') {
 		if (player == 1) {
 			board[spot.row][spot.col] = 'X';
