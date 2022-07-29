@@ -64,13 +64,12 @@ void runScreen() {
 		}
 	}
 	else {
+		std::cout << "Bot is " << bot.getTurnNum() << " player" << std::endl;
 		while (running) {
 			// Bot
 			while (SDL_PollEvent(&event)) {
 				drawBoard(renderer);
-				if (event.type == SDL_MOUSEBUTTONDOWN) {
-					botGameLoop(renderer, player, gameBoard, bot);
-				}
+				botGameLoop(renderer, player, gameBoard, bot, event);
 				SDL_RenderPresent(renderer);
 				if (event.type == SDL_QUIT) {
 					running = false;

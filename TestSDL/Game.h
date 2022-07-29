@@ -6,7 +6,7 @@
 
 void twoPlayerGameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3]);
 
-void botGameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3], Bot& bot);
+void botGameLoop(SDL_Renderer* rend, int& player, char(&board)[3][3], Bot& bot, SDL_Event& event);
 
 void checkTurn(int& player);
 
